@@ -1,0 +1,6 @@
+services:
+  - type: worker
+    name: qr-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 telegram_maps_qr_bot.py
