@@ -6,6 +6,7 @@ from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, fil
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
 
 logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # ── UTM to LatLon ─────────────────────────────────────────────────────────────
 def utm_to_latlon(easting, northing, zone=48, northern=True):
