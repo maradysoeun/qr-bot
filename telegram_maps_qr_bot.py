@@ -173,6 +173,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.message.from_user
+    logger.info(f"USER: id={user.id} | name={user.full_name} | username=@{user.username} | text={update.message.text}")
     result = parse_coordinates(update.message.text)
     if not result:
         await update.message.reply_text(
