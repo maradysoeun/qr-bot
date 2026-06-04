@@ -184,10 +184,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             parse_mode="Markdown"
         )
         return
-    lat, lon, ctype = result
+   lat, lon, ctype = result
     long_url = f"https://maps.google.com/?q={lat:.6f},{lon:.6f}"
-short = urllib.request.urlopen(f"http://tinyurl.com/api-create.php?url={urllib.parse.quote(long_url)}")
-url = short.read().decode()
+    short = urllib.request.urlopen(f"http://tinyurl.com/api-create.php?url={urllib.parse.quote(long_url)}")
+    url = short.read().decode()
     await update.message.reply_photo(
         photo=generate_qr(url),
         caption=f"📍 *{ctype}*\nLat: `{lat:.6f}` | Lon: `{lon:.6f}`\n[Open in Google Maps]({url})",
