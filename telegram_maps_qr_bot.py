@@ -137,13 +137,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
     lat, lon, ctype = result
-    long_url = f"https://maps.google.com/maps?q={lat:.6f},{lon:.6f}"
-    try:
-        short = urllib.request.urlopen(f"http://tinyurl.com/api-create.php?url={urllib.parse.quote(long_url)}")
-        url = short.read().decode()
-    except Exception:
-        url = long_url
+    url = f"https://maps.google.com/maps?q={lat:.6f},{lon:.6f}"
     await update.message.reply_photo(
+        photo=generate_qr(url),
+        caption=f"📍 *{ctype}*\nLat: `{lat:.6f}` | Lon: `{lon:.6f}`\n[Open in Google Maps]({url})",
+        parse_mode="Markdown"
+    )
         photo=generate_qr(url),
         caption=f"📍 *{ctype}*\nLat: `{lat:.6f}` | Lon: `{lon:.6f}`\n[Open in Google Maps]({long_url})",
         parse_mode="Markdown"
