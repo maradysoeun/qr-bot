@@ -1,4 +1,4 @@
-import os, re, io, logging, qrcode, urllib.request, urllib.parse
+import os, re, io, logging, qrcode
 from pyproj import Transformer
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, filters, ContextTypes
@@ -141,10 +141,6 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_photo(
         photo=generate_qr(url),
         caption=f"📍 *{ctype}*\nLat: `{lat:.6f}` | Lon: `{lon:.6f}`\n[Open in Google Maps]({url})",
-        parse_mode="Markdown"
-    )
-        photo=generate_qr(url),
-        caption=f"📍 *{ctype}*\nLat: `{lat:.6f}` | Lon: `{lon:.6f}`\n[Open in Google Maps]({long_url})",
         parse_mode="Markdown"
     )
 
