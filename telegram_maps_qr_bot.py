@@ -137,7 +137,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         return
     lat, lon, ctype = result
-    long_url = f"https://www.google.com/maps/search/?api=1&query={lat:.6f},{lon:.6f}"
+    long_url = f"https://maps.google.com/maps?q={lat:.6f},{lon:.6f}"
     try:
         short = urllib.request.urlopen(f"http://tinyurl.com/api-create.php?url={urllib.parse.quote(long_url)}")
         url = short.read().decode()
