@@ -3,7 +3,7 @@ from pyproj import Transformer
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, filters, ContextTypes
 
-BOT_TOKEN = "8616601923:AAF9L3cMvOCkLRhV0WRxOn8Hd19b1QiIddI"
+BOT_TOKEN = ("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
 
 logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
 
